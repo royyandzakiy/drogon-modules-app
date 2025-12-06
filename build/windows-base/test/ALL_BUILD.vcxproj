@@ -25,7 +25,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{1CE9AD43-1C82-311F-96A2-EE332C6F66EC}</ProjectGuid>
+    <ProjectGuid>{2780F048-F6AF-3D5A-879D-BF4485230372}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
     <Platform>x64</Platform>
@@ -108,11 +108,11 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\project-coding\cpp\202512\drogon-app-simple\test\CMakeLists.txt">
+    <CustomBuild Include="C:\project-coding\cpp\202512\hello\drogon-app-simple\test\CMakeLists.txt">
       <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/project-coding/cpp/202512/drogon-app-simple/test/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/project-coding/cpp/202512/hello/drogon-app-simple/test/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/project-coding/cpp/202512/drogon-app-simple -BC:/project-coding/cpp/202512/drogon-app-simple/build --check-stamp-file C:/project-coding/cpp/202512/drogon-app-simple/build/test/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/project-coding/cpp/202512/hello/drogon-app-simple -BC:/project-coding/cpp/202512/hello/drogon-app-simple/build/windows-base --check-stamp-file C:/project-coding/cpp/202512/hello/drogon-app-simple/build/windows-base/test/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -121,11 +121,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\project-coding\cpp\202512\drogon-app-simple\build\test\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\project-coding\cpp\202512\hello\drogon-app-simple\build\windows-base\test\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/project-coding/cpp/202512/drogon-app-simple/test/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/project-coding/cpp/202512/hello/drogon-app-simple/test/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/project-coding/cpp/202512/drogon-app-simple -BC:/project-coding/cpp/202512/drogon-app-simple/build --check-stamp-file C:/project-coding/cpp/202512/drogon-app-simple/build/test/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/project-coding/cpp/202512/hello/drogon-app-simple -BC:/project-coding/cpp/202512/hello/drogon-app-simple/build/windows-base --check-stamp-file C:/project-coding/cpp/202512/hello/drogon-app-simple/build/windows-base/test/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -134,11 +134,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\project-coding\cpp\202512\drogon-app-simple\build\test\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\project-coding\cpp\202512\hello\drogon-app-simple\build\windows-base\test\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/project-coding/cpp/202512/drogon-app-simple/test/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/project-coding/cpp/202512/hello/drogon-app-simple/test/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/project-coding/cpp/202512/drogon-app-simple -BC:/project-coding/cpp/202512/drogon-app-simple/build --check-stamp-file C:/project-coding/cpp/202512/drogon-app-simple/build/test/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/project-coding/cpp/202512/hello/drogon-app-simple -BC:/project-coding/cpp/202512/hello/drogon-app-simple/build/windows-base --check-stamp-file C:/project-coding/cpp/202512/hello/drogon-app-simple/build/windows-base/test/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -147,11 +147,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\project-coding\cpp\202512\drogon-app-simple\build\test\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\project-coding\cpp\202512\hello\drogon-app-simple\build\windows-base\test\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/project-coding/cpp/202512/drogon-app-simple/test/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/project-coding/cpp/202512/hello/drogon-app-simple/test/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/project-coding/cpp/202512/drogon-app-simple -BC:/project-coding/cpp/202512/drogon-app-simple/build --check-stamp-file C:/project-coding/cpp/202512/drogon-app-simple/build/test/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/project-coding/cpp/202512/hello/drogon-app-simple -BC:/project-coding/cpp/202512/hello/drogon-app-simple/build/windows-base --check-stamp-file C:/project-coding/cpp/202512/hello/drogon-app-simple/build/windows-base/test/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -160,7 +160,7 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\project-coding\cpp\202512\drogon-app-simple\build\test\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\project-coding\cpp\202512\hello\drogon-app-simple\build\windows-base\test\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
@@ -168,14 +168,14 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="C:\project-coding\cpp\202512\drogon-app-simple\build\ZERO_CHECK.vcxproj">
-      <Project>{6EAE70C2-494D-3E20-AAC4-A3DDFB6F3F3F}</Project>
+    <ProjectReference Include="C:\project-coding\cpp\202512\hello\drogon-app-simple\build\windows-base\ZERO_CHECK.vcxproj">
+      <Project>{13C07FF0-A0A6-33D8-B856-593C715CEBFA}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="C:\project-coding\cpp\202512\drogon-app-simple\build\test\drogon-test_test.vcxproj">
-      <Project>{ADB96B83-D8CF-332C-8354-85074EA0540E}</Project>
+    <ProjectReference Include="C:\project-coding\cpp\202512\hello\drogon-app-simple\build\windows-base\test\drogon-test_test.vcxproj">
+      <Project>{62E335C7-BB98-394D-AB86-0FF468A879E7}</Project>
       <Name>drogon-test_test</Name>
     </ProjectReference>
   </ItemGroup>
