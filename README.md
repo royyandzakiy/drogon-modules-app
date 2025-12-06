@@ -22,7 +22,9 @@ drogon_ctl create drogon-app-simple
 - Configure, Build, Run!
     - Choose compiler: VS2022 amd64
     - CMake Tools > Build Type: Release > Launch
+        - Note: Debug doesn't work
+        - ![alt text](debug-fails.png)
 
 ---
 
-Reference: [Install by vcpkg in Windows](https://drogonframework.github.io/drogon-docs/#/ENG/ENG-02-Installation?id=install-by-source-in-windows)
+Reference: [Article: Install by vcpkg in Windows](https://drogonframework.github.io/drogon-docs/#/ENG/ENG-02-Installation?id=install-by-source-in-windows)

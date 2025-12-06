@@ -1,5 +1,6 @@
 #include <drogon/drogon.h>
-#include <iostream>
+#include <print>
+
 int main() {
     //Set HTTP listener address and port
     drogon::app().addListener("0.0.0.0", 5555);
@@ -7,7 +8,7 @@ int main() {
     //drogon::app().loadConfigFile("../config.json");
     //drogon::app().loadConfigFile("../config.yaml");
     //Run HTTP framework,the method will block in the internal event loop
-    std::cout << "App Run!";
+    std::println("App Run!");
     drogon::app().run();
     return 0;
 }
