@@ -20,10 +20,10 @@ drogon_ctl create drogon-app-simple
 ```
 
 - Configure, Build, Run!
-    - Choose compiler: VS2022 amd64
-    - CMake Tools > Build Type: Release > Launch
-        - Note: Debug doesn't work
-        - ![alt text](debug-fails.png)
+    - Choose configure preset: windows-base
+    - Configure, Build, Launch
+        - Note: using Build type as Debug doesn't work!
+        - ![debug-fails](docs/debug-fails.png)
 
 ---
 

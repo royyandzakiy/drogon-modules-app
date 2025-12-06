@@ -336,7 +336,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="C:\project-coding\cpp\202512\hello\drogon-app-simple\main.cpp" />
+    <ClCompile Include="C:\project-coding\cpp\202512\hello\drogon-app-simple\src\main.cpp" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
