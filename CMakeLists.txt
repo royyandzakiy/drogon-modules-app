@@ -20,7 +20,10 @@ set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-add_executable(${PROJECT_NAME} src/main.cc ${CTL_SRC})
+add_executable(${PROJECT_NAME} src/main.cc 
+	${CTL_SRC} # add to have controllers
+	${FILTER_SRC} # add to have filters
+)
 
 # ##############################################################################
 # If you include the drogon source code locally in your project, use this method

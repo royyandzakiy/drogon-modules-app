@@ -3,11 +3,12 @@
 
 using namespace drogon;
 
-class HelloController : public drogon::HttpController<HelloController> // notice CRTP style
+class HelloController : public HttpController<HelloController> // ? notice, uses CRTP style
 {
   public:
 	METHOD_LIST_BEGIN
 	ADD_METHOD_TO(HelloController::sayHello, "hello/{name}", Get);
+	ADD_METHOD_TO(HelloController::sayHello, "hello-auth/{name}", Get, "MyLoggingFilter");
 	METHOD_LIST_END
 
 	void sayHello(const HttpRequestPtr &req, std::function<void(const HttpResponsePtr &)> &&callback, std::string name);
