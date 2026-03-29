@@ -1,0 +1,39 @@
+<%inc 
+	#include <drogon/HttpViewData.h>
+	#include <deque>
+	#include <string>
+	#include <utility>
+%>
+
+<html>
+<head>
+	<title>Visitors Log History</title>`
+</head>
+
+<body>
+	<h1>Visitors Log History (last 10)!</h1>
+	<table border="1" style="width:100%; text-align:left;">
+		<tr>
+			<th>Name</th>
+			<th>Time of Visit</th>
+		</tr>
+	<%c++
+		// Access data, create rows
+		auto visitors = @@.get<std::deque<std::pair<std::string, std::string>>>("visitors");
+    for (const auto& v : visitors) {
+	%>
+		<tr>
+			<td>{% v.first %}</td>
+			<td>{% v.second %}</td>
+		</tr>
+	<%c++
+		}
+	%>
+
+	</table>
+	<br />
+    <button onclick="window.location.href='/'">← Back to Home</button>
+		<br />
+	<button onclick="window.location.href='/hello-page/Royyan'">View Dynamic Hello Page</button>
+</body>
+</html>

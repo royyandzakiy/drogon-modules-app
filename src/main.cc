@@ -5,6 +5,7 @@
 using namespace drogon;
 
 auto main(int argc, char **argv) -> int {
+	// ? example of manually adding route
 	app().registerHandler("/test",
 						  [](const HttpRequestPtr &req, std::function<void(const HttpResponsePtr &)> &&callback) {
 							  Json::Value data;
@@ -36,8 +37,7 @@ auto main(int argc, char **argv) -> int {
 		return 1;
 	}
 
-	// 3. Run
-	std::println("Server is starting... visit http://localhost:5555");
+	std::println("Server is starting... visit http://localhost:5555"); // port 5555 is set via config.json
 	app().run();
 
 	return 0;
