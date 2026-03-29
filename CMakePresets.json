@@ -38,7 +38,19 @@
 				"CMAKE_C_COMPILER": "clang-cl",
 				"CMAKE_CXX_COMPILER": "clang-cl",
 				"CMAKE_TOOLCHAIN_FILE": "C:/vcpkg/scripts/buildsystems/vcpkg.cmake",
-				"CMAKE_RUNTIME_OUTPUT_DIRECTORY": "${sourceDir}/bin/clang"
+				"CMAKE_RUNTIME_OUTPUT_DIRECTORY": "${sourceDir}/bin/clang-win"
+			}
+		},
+		{
+			"name": "clang-linux-base",
+			"description": "Linux Clang with Ninja",
+			"hidden": true,
+			"inherits": "base",
+			"generator": "Ninja",
+			"cacheVariables": {
+				"CMAKE_C_COMPILER": "clang",
+				"CMAKE_CXX_COMPILER": "clang++",
+				"CMAKE_RUNTIME_OUTPUT_DIRECTORY": "${sourceDir}/bin/clang-linux"
 			}
 		},
 		{
@@ -56,15 +68,29 @@
 			}
 		},
 		{
-			"name": "clang-debug",
+			"name": "clang-win-debug",
 			"inherits": "clang-win-base",
 			"cacheVariables": {
 				"CMAKE_BUILD_TYPE": "Debug"
 			}
 		},
 		{
-			"name": "clang-release",
+			"name": "clang-win-release",
 			"inherits": "clang-win-base",
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Release"
+			}
+		},
+		{
+			"name": "clang-linux-debug",
+			"inherits": "clang-linux-base",
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Debug"
+			}
+		},
+		{
+			"name": "clang-linux-release",
+			"inherits": "clang-linux-base",
 			"cacheVariables": {
 				"CMAKE_BUILD_TYPE": "Release"
 			}
@@ -89,14 +115,24 @@
 			"configuration": "Release"
 		},
 		{
-			"name": "clang-debug",
+			"name": "clang-win-debug",
 			"inherits": "base-build",
-			"configurePreset": "clang-debug"
+			"configurePreset": "clang-win-debug"
 		},
 		{
-			"name": "clang-release",
+			"name": "clang-win-release",
 			"inherits": "base-build",
-			"configurePreset": "clang-release"
+			"configurePreset": "clang-win-release"
+		},
+		{
+			"name": "clang-linux-debug",
+			"inherits": "base-build",
+			"configurePreset": "clang-linux-debug"
+		},
+		{
+			"name": "clang-linux-release",
+			"inherits": "base-build",
+			"configurePreset": "clang-linux-release"
 		}
 	],
 	"testPresets": [
@@ -113,9 +149,14 @@
 			"configurePreset": "msvc-debug"
 		},
 		{
-			"name": "test-clang-debug",
+			"name": "test-clang-win-debug",
 			"inherits": "base-test",
-			"configurePreset": "clang-debug"
+			"configurePreset": "clang-win-debug"
+		},
+		{
+			"name": "test-clang-linux-debug",
+			"inherits": "base-test",
+			"configurePreset": "clang-linux-debug"
 		}
 	]
 }
