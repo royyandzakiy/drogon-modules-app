@@ -9,13 +9,13 @@
 #     # [Options, -SessionTicket],
 #     # [Options, Compression]
 #   ]
-# listeners:
-#     # address: Ip address,0.0.0.0 by default
-#   - address: 0.0.0.0
-#     # port: Port number
-#     port: 80
-#     # https: If true, use https for security,false by default
-#     https: false
+listeners:
+  # address: Ip address,0.0.0.0 by default
+  - address: 0.0.0.0
+    # port: Port number
+    port: 5555
+    # https: If true, use https for security,false by default
+    https: false
 #   - address: 0.0.0.0
 #     port: 443
 #     https: true
@@ -286,27 +286,27 @@ app:
   # See the wiki for more details.
   enable_request_stream: false
 # plugins: Define all plugins running in the application
-plugins:
-  # name: The class name of the plugin
-  - name: drogon::plugin::PromExporter
-    # dependencies: Plugins that the plugin depends on. It can be commented out
-    dependencies: []
-    # config: The configuration of the plugin. This json object is the parameter to initialize the plugin.
-    # It can be commented out
-    config:
-      path: /metrics
-  - name: drogon::plugin::AccessLogger
-    dependencies: []
-    config:
-      use_spdlog: false
-      log_path: ""
-      log_format: ""
-      log_file: access.log
-      log_size_limit: 0
-      use_local_time: true
-      log_index: 0
-      # show_microseconds: true
-      # custom_time_format: ''
-      # use_real_ip: false
-# custom_config: custom configuration for users. This object can be get by the app().getCustomConfig() method.
-custom_config: {}
+# plugins:
+#   # name: The class name of the plugin
+#   - name: drogon::plugin::PromExporter
+#     # dependencies: Plugins that the plugin depends on. It can be commented out
+#     dependencies: []
+#     # config: The configuration of the plugin. This json object is the parameter to initialize the plugin.
+#     # It can be commented out
+#     config:
+#       path: /metrics
+#   - name: drogon::plugin::AccessLogger
+#     dependencies: []
+#     config:
+#       use_spdlog: false
+#       log_path: ""
+#       log_format: ""
+#       log_file: access.log
+#       log_size_limit: 0
+#       use_local_time: true
+#       log_index: 0
+#       # show_microseconds: true
+#       # custom_time_format: ''
+#       # use_real_ip: false
+# # custom_config: custom configuration for users. This object can be get by the app().getCustomConfig() method.
+# custom_config: {}

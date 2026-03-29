@@ -1,16 +1,45 @@
 #include <drogon/drogon.h>
+#include <print>
+#include <filesystem>
 
-import std;
+using namespace drogon;
 
-int main()
+auto main(int argc, char **argv) -> int
 {
-	// Set HTTP listener address and port
-	drogon::app().addListener("0.0.0.0", 5555);
-	// Load config file
-	// drogon::app().loadConfigFile("../config.json");
-	// drogon::app().loadConfigFile("../config.yaml");
-	// Run HTTP framework,the method will block in the internal event loop
-	std::println("App Run!");
-	drogon::app().run();
+	app().registerHandler("/hello/{name}", [](const HttpRequestPtr &req, std::function<void(const HttpResponsePtr &)> &&callback, const std::string &name)
+						  {
+        Json::Value data;
+        data["result"] = "success";
+        data["message"] = std::format("Hello, {}!", name);
+        data["time"] = trantor::Date::now().toFormattedString(false);
+
+        auto resp = HttpResponse::newHttpJsonResponse(data);
+        callback(resp); }, {Get});
+
+	try
+	{
+		// dynamically set config.json & index.html
+		std::filesystem::path exePath = std::filesystem::path(app().getCustomConfig()["binary_path"].asString()).parent_path();
+		std::filesystem::path configPath = std::filesystem::current_path() / "config.json";
+
+		auto rootPath = std::filesystem::canonical(std::filesystem::path(argv[0]).parent_path() / "../..");
+		auto absoluteConfig = rootPath / "config.json";
+
+		app().loadConfigFile(absoluteConfig.string());
+		app().setDocumentRoot((rootPath / "public").string());
+
+		std::println("Config loaded from: {}", absoluteConfig.string());
+		std::println("Document root set to: {}", app().getDocumentRoot());
+	}
+	catch (const std::exception &e)
+	{
+		std::println("Failed to load config: {}", e.what());
+		return 1;
+	}
+
+	// 3. Run
+	std::println("Server is starting... visit http://localhost:5555");
+	app().run();
+
 	return 0;
 }

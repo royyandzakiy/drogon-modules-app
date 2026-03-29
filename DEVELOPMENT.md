@@ -1,2 +1,0 @@
-- get config.yaml working
-- add new functions

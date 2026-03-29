@@ -1,5 +1,5 @@
 {
-	"version": 2,
+	"version": 3,
 	"cmakeMinimumRequired": {
 		"major": 3,
 		"minor": 20,
@@ -8,23 +8,24 @@
 	"configurePresets": [
 		{
 			"name": "base",
-			"description": "Sets generator, build and install directory, vcpkg",
+			"description": "Abstract base for directory structure",
 			"hidden": true,
 			"binaryDir": "${sourceDir}/build/${presetName}"
 		},
 		{
-			"name": "windows-base",
-			"description": "Sets x64 arch, compilers, build type",
-			"inherits": [
-				"base"
-			],
+			"name": "windows-vcpkg-base",
+			"description": "Common Windows settings for MSVC and vcpkg",
+			"hidden": true,
+			"inherits": "base",
 			"generator": "Visual Studio 17 2022",
 			"architecture": {
 				"value": "x64",
 				"strategy": "external"
 			},
 			"cacheVariables": {
-				"CMAKE_BUILD_TYPE": "Release"
+				"CMAKE_TOOLCHAIN_FILE": "C:/vcpkg/scripts/buildsystems/vcpkg.cmake",
+				"CMAKE_CXX_EXTENSIONS": "OFF",
+				"CMAKE_RUNTIME_OUTPUT_DIRECTORY": "${sourceDir}/bin"
 			},
 			"vendor": {
 				"microsoft.com/VisualStudioSettings/CMake/1.0": {
@@ -33,49 +34,65 @@
 					]
 				}
 			}
+		},
+		{
+			"name": "windows-debug",
+			"description": "Targeting Windows x64 Debug",
+			"inherits": "windows-vcpkg-base",
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Debug"
+			}
+		},
+		{
+			"name": "windows-release",
+			"description": "Targeting Windows x64 Release",
+			"inherits": "windows-vcpkg-base",
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Release"
+			}
 		}
 	],
 	"buildPresets": [
 		{
-			"name": "core-build",
-			"description": "Inherits environment from base configurePreset",
-			"configurePreset": "base",
+			"name": "base-build",
 			"hidden": true,
 			"inheritConfigureEnvironment": true
 		},
 		{
-			"name": "windows-clean-build",
-			"description": "Clean before build (--clean-first)",
-			"configurePreset": "windows-base",
-			"configuration": "Release",
-			"inherits": "core-build",
-			"cleanFirst": true
+			"name": "debug",
+			"inherits": "base-build",
+			"configurePreset": "windows-debug",
+			"configuration": "Debug"
 		},
 		{
-			"name": "windows-verbose-build",
-			"configurePreset": "windows-base",
-			"configuration": "Release",
-			"inherits": "core-build",
-			"verbose": true,
-			"nativeToolOptions": [
-				"-verbosity:normal"
-			]
+			"name": "release",
+			"inherits": "base-build",
+			"configurePreset": "windows-release",
+			"configuration": "Release"
+		},
+		{
+			"name": "release-clean",
+			"inherits": "release",
+			"cleanFirst": true
 		}
 	],
 	"testPresets": [
 		{
-			"name": "core-test",
-			"description": "Enable output on failure",
-			"configurePreset": "base",
-			"hidden": false,
+			"name": "base-test",
+			"hidden": true,
 			"output": {
 				"outputOnFailure": true
 			}
 		},
 		{
-			"name": "windows-core-test",
-			"configurePreset": "windows-base",
-			"inherits": "core-test"
+			"name": "test-debug",
+			"inherits": "base-test",
+			"configurePreset": "windows-debug"
+		},
+		{
+			"name": "test-release",
+			"inherits": "base-test",
+			"configurePreset": "windows-release"
 		}
 	]
 }
