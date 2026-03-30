@@ -54,6 +54,18 @@
 			}
 		},
 		{
+			"name": "gcc-linux-base",
+			"description": "Linux GCC with Ninja",
+			"hidden": true,
+			"inherits": "base",
+			"generator": "Ninja",
+			"cacheVariables": {
+				"CMAKE_C_COMPILER": "gcc",
+				"CMAKE_CXX_COMPILER": "g++",
+				"CMAKE_RUNTIME_OUTPUT_DIRECTORY": "${sourceDir}/bin/gcc-linux"
+			}
+		},
+		{
 			"name": "msvc-debug",
 			"inherits": "msvc-base",
 			"cacheVariables": {
@@ -91,6 +103,20 @@
 		{
 			"name": "clang-linux-release",
 			"inherits": "clang-linux-base",
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Release"
+			}
+		},
+		{
+			"name": "gcc-linux-debug",
+			"inherits": "gcc-linux-base",
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Debug"
+			}
+		},
+		{
+			"name": "gcc-linux-release",
+			"inherits": "gcc-linux-base",
 			"cacheVariables": {
 				"CMAKE_BUILD_TYPE": "Release"
 			}
@@ -133,6 +159,16 @@
 			"name": "clang-linux-release",
 			"inherits": "base-build",
 			"configurePreset": "clang-linux-release"
+		},
+		{
+			"name": "gcc-linux-debug",
+			"inherits": "base-build",
+			"configurePreset": "gcc-linux-debug"
+		},
+		{
+			"name": "gcc-linux-release",
+			"inherits": "base-build",
+			"configurePreset": "gcc-linux-release"
 		}
 	],
 	"testPresets": [
@@ -157,6 +193,11 @@
 			"name": "test-clang-linux-debug",
 			"inherits": "base-test",
 			"configurePreset": "clang-linux-debug"
+		},
+		{
+			"name": "test-gcc-linux-debug",
+			"inherits": "base-test",
+			"configurePreset": "gcc-linux-debug"
 		}
 	]
 }
