@@ -1,5 +1,4 @@
 cmake_minimum_required(VERSION 3.5..4.2)
-project(drogon-visitors-log CXX)
 
 # ##############################################################################
 # VCPKG Path Validation
@@ -13,6 +12,7 @@ include(cmake/config_drogon.cmake)
 # DROGON CHECKS
 # ##############################################################################
 
+project(drogon-visitors-log CXX)
 include(CheckIncludeFileCXX)
 
 check_include_file_cxx(any HAS_ANY)
