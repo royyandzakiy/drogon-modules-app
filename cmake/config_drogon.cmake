@@ -1,3 +1,4 @@
+# config_drogon.cmake
 # =============================================================================
 # Drogon Configuration
 # =============================================================================
@@ -35,7 +36,11 @@ message(STATUS "")
 
 # Set DROGON_CTL_COMMAND if not already defined
 if(NOT DEFINED DROGON_CTL_COMMAND)
-    set(DROGON_CTL_COMMAND "${VCPKG_ROOT_PATH}/installed/${VCPKG_TARGET_TRIPLET}/tools/drogon/drogon_ctl" CACHE FILEPATH "drogon_ctl executable")
+	if(WIN32)
+		set(DROGON_CTL_COMMAND "${VCPKG_ROOT_PATH}/installed/${VCPKG_TARGET_TRIPLET}/tools/drogon/drogon_ctl.exe" CACHE FILEPATH "drogon_ctl executable")
+	else()
+		set(DROGON_CTL_COMMAND "${VCPKG_ROOT_PATH}/installed/${VCPKG_TARGET_TRIPLET}/tools/drogon/drogon_ctl" CACHE FILEPATH "drogon_ctl executable")
+	endif()
 endif()
 
 # Initialize counters
@@ -97,6 +102,9 @@ if(EXISTS "${DROGON_INSTALL_DIR}")
         math(EXPR DROGON_CHECKS_PASSED "${DROGON_CHECKS_PASSED} + 1")
     elseif(EXISTS "${DROGON_INSTALL_DIR}/lib/libdrogon.dylib")
         message(STATUS "│   ${STATUS_OK} Shared library: libdrogon.dylib")
+        math(EXPR DROGON_CHECKS_PASSED "${DROGON_CHECKS_PASSED} + 1")
+    elseif(EXISTS "${DROGON_INSTALL_DIR}/lib/drogon.lib")
+        message(STATUS "│   ${STATUS_OK} Shared library: drogon.lib")
         math(EXPR DROGON_CHECKS_PASSED "${DROGON_CHECKS_PASSED} + 1")
     elseif(EXISTS "${DROGON_INSTALL_DIR}/lib")
         message(STATUS "│   ${STATUS_WARN} Library directory exists but drogon library not found")
