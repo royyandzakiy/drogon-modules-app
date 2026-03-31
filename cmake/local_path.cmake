@@ -1,3 +1,4 @@
+# local_path.cmake
 # if(WIN32)
 # Windows
 #     set(VCPKG_ROOT_PATH "C:/path/to/vcpkg")

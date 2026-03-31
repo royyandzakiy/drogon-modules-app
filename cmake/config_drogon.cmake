@@ -1,3 +1,4 @@
+# config_drogon.cmake
 # =============================================================================
 # Drogon Configuration
 # =============================================================================
@@ -35,7 +36,11 @@ message(STATUS "")
 
 # Set DROGON_CTL_COMMAND if not already defined
 if(NOT DEFINED DROGON_CTL_COMMAND)
-    set(DROGON_CTL_COMMAND "${VCPKG_ROOT_PATH}/installed/${VCPKG_TARGET_TRIPLET}/tools/drogon/drogon_ctl" CACHE FILEPATH "drogon_ctl executable")
+	if(WIN32)
+		set(DROGON_CTL_COMMAND "${VCPKG_ROOT_PATH}/installed/${VCPKG_TARGET_TRIPLET}/tools/drogon/drogon_ctl.exe" CACHE FILEPATH "drogon_ctl executable")
+	else()
+		set(DROGON_CTL_COMMAND "${VCPKG_ROOT_PATH}/installed/${VCPKG_TARGET_TRIPLET}/tools/drogon/drogon_ctl" CACHE FILEPATH "drogon_ctl executable")
+	endif()
 endif()
 
 # Initialize counters
