@@ -35,6 +35,39 @@ add_executable(${PROJECT_NAME} src/main.cc
 	${FILTER_SRC} # add to have filters
 )
 
+
+# if(MSVC)
+#     add_compile_options(/W4 /permissive- /WX)
+# else()
+#     # Clang/GCC
+#     add_compile_options(-Wall -Wextra -Werror -pedantic)
+# endif()
+
+# if(CLANGTIDY)
+#     set(CMAKE_CXX_CLANG_TIDY ${CLANGTIDY})
+#     message(STATUS "Clang-Tidy enabled: ${CLANGTIDY}")
+# endif()
+
+# # =============================================================================
+# # Sanitizers Configuration (Clang/GCC only)
+# # =============================================================================
+# option(ENABLE_SANITIZERS "Enable Address, Undefined, and Leak sanitizers" ON)
+
+# if(ENABLE_SANITIZERS AND NOT MSVC)
+#     message(STATUS "Building with Address, Undefined, and Leak Sanitizers")
+    
+#     set(SANITIZER_FLAGS 
+#         -fsanitize=address,undefined,leak 
+#         -fno-omit-frame-pointer
+#     )
+    
+#     # Add to compiler flags
+#     add_compile_options(${SANITIZER_FLAGS})
+    
+#     # Add to linker flags (CRITICAL: sanitizers need library linking)
+#     add_link_options(${SANITIZER_FLAGS})
+# endif()
+
 # ##############################################################################
 
 find_package(Drogon CONFIG REQUIRED)
